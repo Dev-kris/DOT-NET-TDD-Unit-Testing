@@ -12,12 +12,11 @@ namespace P2FixAnAppDotNetCode.Models
         /// Read-only property for dispaly only
         /// </summary>
         //  Added direct reference to cartLines list to hold cart contents
-        // In an enumerable and editable list of CartLine items
+        //  In an enumerable and editable list of CartLine items
         public IEnumerable<CartLine> Lines => _cartLines;
 
         // Added a list to hold cart contents.
         private List<CartLine> _cartLines = new List<CartLine>();
-
 
         /// <summary>
         /// Adds a product in the cart or increment its quantity in the cart if already added
@@ -57,7 +56,6 @@ namespace P2FixAnAppDotNetCode.Models
                 cartTotal += item.Product.Price * item.Quantity;
             }
 
-
             return cartTotal;
         }
 
@@ -91,7 +89,6 @@ namespace P2FixAnAppDotNetCode.Models
         public Product FindProductInCartLines(int productId)
         {
             // Implemented FirstOrDefault method to find specific items in cart. 
-
             return _cartLines.FirstOrDefault(c => c.Product.Id == productId).Product;
         }
 
@@ -111,8 +108,6 @@ namespace P2FixAnAppDotNetCode.Models
         {
             _cartLines.Clear();
         }
-
-
     }
 
     public class CartLine
